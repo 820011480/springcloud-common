@@ -1,0 +1,16 @@
+#server.port
+server:
+  port: 8080
+#application.name
+spring:
+  application:
+    name: gateWay_service
+#======================================= 以上放置starter配置 ，以下放置其他配置 =================================================
+#日志文件
+#logging:
+#  config: classpath:logback-spring.xml.demo
+#
+enable:
+  ssl:
+    supportType: true
+    privateKey: dsadjsdaovjow12dajoe

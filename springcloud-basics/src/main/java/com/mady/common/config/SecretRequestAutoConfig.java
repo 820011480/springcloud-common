@@ -12,16 +12,17 @@ import org.springframework.context.annotation.Configuration;
  * @date 2020/4/10 16:56
  * @description 加解密自动配置
  */
-@EnableConfigurationProperties(SecretProperties.class)
-@EnableAutoConfiguration
+
 @Configuration
+@EnableAutoConfiguration
+@EnableConfigurationProperties(SecretProperties.class)
 public class SecretRequestAutoConfig {
-    /**
-     * 自动配置全局切面
-     * @return
-     */
-    @Bean
-    public SecretRequestAdvice secretRequestAdvice(){
-        return new SecretRequestAdvice();
-    }
+//    /**
+//     * 自动配置全局切面
+//     * @return
+//     */
+//    @Bean
+//    public SecretRequestAdvice secretRequestAdvice(){
+//        return new SecretRequestAdvice();
+//    }
 }

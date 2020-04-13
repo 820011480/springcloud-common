@@ -6,7 +6,7 @@ package com.mady.common;
  * @date 2020/4/10 11:19
  * @description
  */
-public class TestTeyCacth {
+public class TestTeyCatch {
 
 
 }

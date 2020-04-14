@@ -1,44 +1,36 @@
 package com.mady.common.sign;//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
 
-import java.util.Iterator;
+import com.mady.common.exception.BaseRuntimeException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.ObjectUtils;
+
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
-import java.util.Map.Entry;
 
-import com.mady.common.sign.Signer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+/**
+ * RSA签名统一入口
+ */
 
-abstract class AbstractSignerWithRsa implements Signer {
-    private static final Logger log = LoggerFactory.getLogger(AbstractSignerWithRsa.class);
+@Slf4j
+public abstract class AbstractSignerWithRsa implements Signer {
 
-    AbstractSignerWithRsa() {
-    }
+    public AbstractSignerWithRsa() {}
 
-    protected static String getStrToSign(Map<String, String> inputMap) {
-        if (inputMap != null && !inputMap.isEmpty()) {
-            inputMap.remove("signature");
-            Object newMap;
-            if (inputMap instanceof TreeMap) {
-                newMap = inputMap;
-            } else {
-                newMap = new TreeMap(inputMap);
-            }
 
-            StringBuilder needSignStrBuilder = new StringBuilder();
-            Iterator var3 = ((Map)newMap).entrySet().iterator();
-
-            while(var3.hasNext()) {
-                Entry<String, String> entry = (Entry)var3.next();
-                needSignStrBuilder.append((String)entry.getKey()).append("=").append(entry.getValue() == null ? "" : (String)entry.getValue()).append("&");
-            }
-
-            return needSignStrBuilder.substring(0, needSignStrBuilder.length() - 1);
-        } else {
-            throw new RuntimeException("参数不能为空");
+    /**
+     * map/json 转化为 加签 String
+     * @param inputMap
+     * @return
+     */
+    public static String getStrToSign(Map<String, String> inputMap) {
+        if(ObjectUtils.isEmpty(inputMap)){
+            throw new BaseRuntimeException("500", "加签参数为空");
         }
+        LinkedHashMap linkedHashMap = inputMap instanceof LinkedHashMap ? (LinkedHashMap)inputMap : new LinkedHashMap(inputMap);
+        StringBuilder stringBuilder = new StringBuilder();
+        linkedHashMap.forEach((k, v) -> {
+            stringBuilder.append(k).append("=").append(v == null ? "" : v).append("&");
+        });
+        return stringBuilder.substring(0, stringBuilder.length() -1);
     }
 }

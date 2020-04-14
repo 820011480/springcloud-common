@@ -9,15 +9,15 @@ import java.util.Map;
 /**
  * RSA2  SHA256withRSA
  */
-public class SignerWithRsa2 extends AbstractSignerWithRsa {
+public class SignerWithRsa extends AbstractSignerWithRsa {
 
-    private static SignerWithRsa2 instance = new SignerWithRsa2();
+    private static SignerWithRsa instance = new SignerWithRsa();
 
-    public static SignerWithRsa2 getInstance() {
+    public static SignerWithRsa getInstance() {
         return instance;
     }
 
-    private SignerWithRsa2() {}
+    private SignerWithRsa() {}
 
     public String doSign(Map<String, String> inputMap, String privateKeyB64) {
         return this.doSign(inputMap, privateKeyB64, "UTF-8");

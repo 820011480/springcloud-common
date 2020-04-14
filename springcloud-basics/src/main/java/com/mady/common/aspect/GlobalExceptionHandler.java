@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
 
+
     @ExceptionHandler(value = BaseRuntimeException.class)
     public ApiResponseDTO handler(BaseRuntimeException e){
         ApiResponseDTO<String> apiResponseDTO = ApiResponseDTO.newFailure(e.getErrorCode(), e.getErrorMsg(), "");

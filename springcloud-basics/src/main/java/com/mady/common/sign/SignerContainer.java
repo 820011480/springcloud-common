@@ -9,17 +9,17 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public final class SignerContainer {
+
     private static Map<String, Signer> signerMap = new ConcurrentHashMap();
 
     public static Signer getSigner(String signerName) {
         return signerMap.get(signerName);
     }
 
-    private SignerContainer() {
-        throw new RuntimeException("please do not instance a util class");
-    }
+    private SignerContainer() {}
 
     static {
+        signerMap.put("RSA", SignerWithRsa.getInstance());
         signerMap.put("RSA2", SignerWithRsa2.getInstance());
     }
 }

@@ -4,7 +4,6 @@ import com.mady.common.aspect.SecretRequestAdvice;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * @author mady
@@ -13,16 +12,15 @@ import org.springframework.context.annotation.Configuration;
  * @description 加解密自动配置
  */
 
-@Configuration
 @EnableAutoConfiguration
 @EnableConfigurationProperties(SecretProperties.class)
 public class SecretRequestAutoConfig {
-//    /**
-//     * 自动配置全局切面
-//     * @return
-//     */
-//    @Bean
-//    public SecretRequestAdvice secretRequestAdvice(){
-//        return new SecretRequestAdvice();
-//    }
+    /**
+     * 自动配置全局切面
+     * @return
+     */
+    @Bean
+    public SecretRequestAdvice secretRequestAdvice(){
+        return new SecretRequestAdvice();
+    }
 }

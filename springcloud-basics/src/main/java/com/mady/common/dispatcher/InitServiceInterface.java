@@ -48,6 +48,7 @@ public class InitServiceInterface implements CommandLineRunner {
                     continue;
                 }
                 String value = annotation.value();
+                //初始化所有接口
                 map.put(value, item);
             }
         });

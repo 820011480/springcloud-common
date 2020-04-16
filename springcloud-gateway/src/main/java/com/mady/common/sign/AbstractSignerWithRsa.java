@@ -26,6 +26,9 @@ public abstract class AbstractSignerWithRsa implements Signer {
         if(ObjectUtils.isEmpty(inputMap)){
             throw new BaseRuntimeException("500", "加签参数为空");
         }
+        if(inputMap.containsKey("sign")){
+            inputMap.remove("sign");
+        }
         LinkedHashMap linkedHashMap = inputMap instanceof LinkedHashMap ? (LinkedHashMap)inputMap : new LinkedHashMap(inputMap);
         StringBuilder stringBuilder = new StringBuilder();
         linkedHashMap.forEach((k, v) -> {

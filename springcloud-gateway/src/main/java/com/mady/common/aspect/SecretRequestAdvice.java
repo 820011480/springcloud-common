@@ -33,13 +33,14 @@ import java.lang.reflect.Type;
  */
 @Slf4j
 @RestControllerAdvice
-public class SecretRequestAdvice implements RequestBodyAdvice {
+public class SecretRequestAdvice extends RequestBodyAdviceAdapter {
     @Autowired
     private SecretProperties secretProperties;
 
     @Override
     public boolean supports(MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) {
-        return true;
+        //判断是否支持加验签
+       return secretProperties.getSupportType();
     }
 
     /**
@@ -57,28 +58,13 @@ public class SecretRequestAdvice implements RequestBodyAdvice {
      */
     @Override
     public HttpInputMessage beforeBodyRead(HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) throws IOException {
-        //判断是否支持加签
-        if(secretProperties.getSupportType()){
-            return inputMessage;
-        }
-        GateWayRequest annotation = parameter.getMethod().getAnnotation(GateWayRequest.class);
-        if(ObjectUtils.isEmpty(annotation)){
-            return inputMessage;
-        }
+//        GateWayRequest annotation = parameter.getMethod().getAnnotation(GateWayRequest.class);
+//        if(ObjectUtils.isEmpty(annotation)){
+//            return inputMessage;
+//        }
         //验签处理
         return doVerify(inputMessage,  parameter);
     }
-
-    @Override
-    public Object afterBodyRead(Object o, HttpInputMessage httpInputMessage, MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) {
-        return null;
-    }
-
-    @Override
-    public Object handleEmptyBody(Object o, HttpInputMessage httpInputMessage, MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) {
-        return null;
-    }
-
     /**
      * 验签
      * @param inputMessage
@@ -87,6 +73,7 @@ public class SecretRequestAdvice implements RequestBodyAdvice {
     private HttpInputMessage doVerify(HttpInputMessage inputMessage, MethodParameter parameter) {
         //获取请求体
         try{
+            //优化 缓冲流[BIO]
             InputStream body = inputMessage.getBody();
             ByteArrayOutputStream output = new ByteArrayOutputStream();
             byte[] buffer = new byte[4096];

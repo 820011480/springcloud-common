@@ -1,15 +1,10 @@
 package com.mady.common.utils;
 
-import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.mady.common.annotation.GateWayRequest;
 import com.mady.common.common.ApiRequestDTO;
 import com.mady.common.common.ApiResponseDTO;
 import com.mady.common.common.ApiRouteDTO;
-import com.mady.common.common.BaseResultEnum;
 import com.mady.common.exception.BaseRuntimeException;
 import com.mady.common.service.impl.ProductServiceImpl;
 import org.springframework.util.ObjectUtils;
@@ -17,35 +12,54 @@ import org.springframework.util.ObjectUtils;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * @author mady
  * @version 1.0.0
  * @date 2020/4/15 12:38
- * @description
+ * @description 路由工具类
  */
 public class RouteToUtils {
 
+    /**
+     * 路由方法
+     * @param apiRouteDTO
+     * @param bizContent
+     * @return
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     * @throws InvocationTargetException
+     */
     public static ApiResponseDTO routeTo(ApiRouteDTO apiRouteDTO,String bizContent) throws IllegalAccessException, InstantiationException, InvocationTargetException {
-        Object [] obj = null;
-        Class<?>[] parameterTypes = apiRouteDTO.getMethod().getParameterTypes();
-        if(ObjectUtils.isEmpty(bizContent)){
+        //获取方法参数
+        Parameter[] parameters = apiRouteDTO.getParameters();
+        if(ObjectUtils.isEmpty(parameters)){
             return (ApiResponseDTO)apiRouteDTO.getMethod().invoke(apiRouteDTO.getClazz().newInstance(), null);
         }
-//        Parameter[] parameters = apiRouteDTO.getParameters();
-//        for (int i = 0; i < parameterTypes.length; i++) {
-//            JsonParser parser = new JsonParser();
-//            JsonObject asJsonObject = parser.parse(bizContent).getAsJsonObject();
-//            String name = parameters[i].getName();
-//            JsonElement jsonElement = asJsonObject.get(name);
-//            if(jsonElement == null){
-//                throw new BaseRuntimeException();
-//            }
-//            obj[i] = new Gson().fromJson(jsonElement, parameterTypes[i]);
-//        }
-        return (ApiResponseDTO)apiRouteDTO.getMethod().invoke(apiRouteDTO.getClazz().newInstance(), bizContent);
+        Map<String, Class> mapParameters = new HashMap<>();
+        for(Parameter parameter : parameters){
+            mapParameters.put(parameter.getName(), parameter.getType());
+        }
+        Object[] obj = new Object[parameters.length];
+        List<Object> objectList = new ArrayList<>();
+        Gson gson = new Gson();
+        Map<String, String> map = gson.fromJson(bizContent, Map.class);
+        //遍历参数列表[参数名称非参数类型]
+        map.forEach((k, v) -> {
+            if (!mapParameters.containsKey(k)) {
+                throw new BaseRuntimeException("500", String.format("%参数不存在", k));
+            }
+            Object o = gson.fromJson(v, mapParameters.get(k));
+            List<String> validate = ValidationUtils.valid(o);
+            if(ObjectUtils.isEmpty(validate)){
+                objectList.add(o);
+            }
+        });
+        return (ApiResponseDTO)apiRouteDTO.getMethod().invoke(apiRouteDTO.getClazz().newInstance(), objectList.toArray());
     }
 
     public static void main(String[] args) throws IllegalAccessException, InvocationTargetException, InstantiationException {

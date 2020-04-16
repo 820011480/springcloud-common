@@ -32,7 +32,9 @@ public class InitServiceInterface implements CommandLineRunner {
      */
     @Autowired
     private ApplicationContext applicationContext;
-
+    /**
+     * 缓存bean
+     */
     private Map<String, ApiRouteDTO> map = new HashMap<>();
 
 
@@ -47,10 +49,6 @@ public class InitServiceInterface implements CommandLineRunner {
                 //不存在跳过
                 if (ObjectUtils.isEmpty(annotation)){
                     continue;
-                }
-                Class<?>[] parameterTypes = method.getParameterTypes();
-                for (int i = 0; i < parameterTypes.length; i++) {
-                    System.out.println(parameterTypes[i].getName());
                 }
                 Parameter[] parameters = method.getParameters();
                 //初始化所有接口

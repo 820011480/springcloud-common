@@ -3,6 +3,7 @@ package com.mady.common.service.impl;
 import com.mady.common.annotation.GateWayRequest;
 import com.mady.common.common.ApiResponseDTO;
 import com.mady.common.service.ServiceInterface;
+import com.mady.common.utils.RSAKeyPair;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,11 +13,12 @@ import org.springframework.stereotype.Service;
  * @description 产品服务实现类
  */
 @Service
-public class ProductServiceImpl implements ServiceInterface {
+public class ProductServiceImpl  {
 
-    @Override
     @GateWayRequest("scpp.api.common.product.add")
-    public ApiResponseDTO routeTo(String bizContent) {
+    public ApiResponseDTO routeTo(RSAKeyPair rsaKeyPair, int count) {
         return ApiResponseDTO.newFailure("500", "hello", "123");
     }
+
+
 }

@@ -2,6 +2,7 @@ package com.mady.common.aspect;
 
 import com.google.gson.Gson;
 import com.mady.common.common.ApiResponseDTO;
+import com.mady.common.config.ParamCheckProperties;
 import com.mady.common.config.SecretProperties;
 import com.mady.common.exception.BaseRuntimeException;
 import com.mady.common.sign.Signer;
@@ -27,6 +28,10 @@ public class GlobalExceptionHandler {
 
     @Autowired
     private SecretProperties secretProperties;
+
+    @Autowired
+    private ParamCheckProperties paramCheckProperties;
+
 
     @ResponseStatus(value = HttpStatus.OK)
     @ExceptionHandler(value = BaseRuntimeException.class)

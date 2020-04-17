@@ -1,7 +1,6 @@
 package com.mady.common.aspect;
 
 import com.google.gson.Gson;
-import com.mady.common.annotation.GateWayRequest;
 import com.mady.common.common.ApiRequestDTO;
 import com.mady.common.common.BaseResultEnum;
 import com.mady.common.config.SecretProperties;
@@ -11,13 +10,9 @@ import com.mady.common.sign.SignerContainer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdviceAdapter;
 
 import java.io.ByteArrayOutputStream;
@@ -58,10 +53,6 @@ public class SecretRequestAdvice extends RequestBodyAdviceAdapter {
      */
     @Override
     public HttpInputMessage beforeBodyRead(HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) throws IOException {
-//        GateWayRequest annotation = parameter.getMethod().getAnnotation(GateWayRequest.class);
-//        if(ObjectUtils.isEmpty(annotation)){
-//            return inputMessage;
-//        }
         //验签处理
         return doVerify(inputMessage,  parameter);
     }

@@ -25,7 +25,15 @@ public enum BaseResultEnum {
     /**
      * 签名校验失败
      */
-    SIGN_VERIFY_FAILED("10003", "接口不存在"),
+    SIGN_VERIFY_FAILED("10003", "签名校验失败"),
+    /**
+     * 请求参数不能为空
+     */
+    REQUEST_ARGS_NULL("10004", "请求参数不能为空"),
+    /**
+     * 请求参数不能为空
+     */
+    SIGNATURE_FAIL("10005", "签名校验失败"),
     /**
      * 系统异常
      */

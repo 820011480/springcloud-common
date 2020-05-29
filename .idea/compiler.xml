@@ -8,22 +8,36 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="springcloud-basics" />
-        <module name="springcloud-kafka" />
+        <module name="springcloud-apollo" />
+        <module name="springcloud-oauth" />
         <module name="springcloud-gateway" />
+        <module name="springcloud-kafka-facade" />
+        <module name="springcloud-customize-gateway" />
+        <module name="springcloud-kafka-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="springcloud-apollo" target="1.8" />
       <module name="springcloud-basics" target="1.8" />
       <module name="springcloud-common" target="1.8" />
+      <module name="springcloud-customize-gateway" target="1.8" />
       <module name="springcloud-gateway" target="1.8" />
       <module name="springcloud-kafka" target="1.8" />
+      <module name="springcloud-kafka-facade" target="1.8" />
+      <module name="springcloud-kafka-service" target="1.8" />
+      <module name="springcloud-oauth" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springcloud-apollo" options="-parameters" />
       <module name="springcloud-basics" options="-parameters" />
+      <module name="springcloud-customize-gateway" options="-parameters" />
       <module name="springcloud-gateway" options="-parameters" />
       <module name="springcloud-kafka" options="-parameters" />
+      <module name="springcloud-kafka-facade" options="-parameters" />
+      <module name="springcloud-kafka-service" options="-parameters" />
+      <module name="springcloud-oauth" options="-parameters" />
     </option>
   </component>
 </project>

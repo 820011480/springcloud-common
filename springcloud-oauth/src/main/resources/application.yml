@@ -1,0 +1,33 @@
+#server.port
+server:
+  port: 18082
+#application.name
+spring:
+  application:
+    name: oauth_service
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    timeout: 1000
+#redis 配置
+
+#======================================= 以上放置starter配置 ，以下放置其他配置 =================================================
+#日志文件
+#logging:
+#  config: classpath:logback-spring.xml.demo
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+
+security:
+  oauth2:
+    client:
+      client_id: username
+      client_secret: password
+      registered-redirect-uri: http://localhost:18082/oauth/redirect/url
+
+

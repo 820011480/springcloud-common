@@ -1,21 +1,55 @@
 #server.port
 server:
-  port: 18080
+  port: 18083
 #application.name
+#spring:
+#  devtools:
+#    add-properties: true
+#  application:
+#    name: gateWay_service
+## gateway 配置
+#  cloud:
+#    gateway:
+## 开启网关配
+#      routes:
+##        路由编号【标识路由名称】
+#        - id: path_route
+##          路由url最后需要路由的地址
+#          uri: http://127.0.0.1:18081
+##          路由前缀匹配 【path / method 等】
+#          predicates:
+##            - Path=/kafka
+##            拦截器
+##            filters:
+##            - StripPrefix=1
+
+
 spring:
   application:
     name: gateWay_service
-#======================================= 以上放置starter配置 ，以下放置其他配置 =================================================
-#日志文件
-#logging:
-#  config: classpath:logback-spring.xml.demo
-#
-enable:
-  ssl:
-    supportType: true
-    privateKey: MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCR6szOqjUva6Fl077oS38gwHysCPO00jTniuycvREwkmpc/PQMaKHaHe5g0VRLW+CXluK4CkbnyLYwmBtsCavGGESrFGtcwO5AbfNrrng94JiWJa51rtv0suGd0qvGgXz0EVgrx9lvXk4ItrjIlxYdxPD1mOj5egqIRkLP6EpkMXrHJPECI5B9467b15DBSOjNcSXUPjaAWmKOzdTuLqSSeE5ZrSw5DANf2PYEzrgBQMoIDzhfXpOR6gkLwOx6tSc8jRuw0TD6ylLBBXlSs8tqKHVeEI2qRYWveNDi0tpfKdHWQjm5kp2NvLEu594ehpmrA/PoQv04+e0QWdK4w9m3AgMBAAECggEAMP78onB4x2GGomCFfA7NszuvIT0oSBFFfnIhnUfHG94uJOczM2922XyvbIcdnOhO89fQbSfWQ0IcGxkYLCDbMvs3I5MJse1+ktfYotHEwlJGKjSg7hc2+GWQaKQy1cbpJDMmvhyvIDw0S6y/Q2uoG3rjxjQAFrUqEDQ3fwRq5lVM4NuvqP1VDwFctGv6czATTVtBFf1AmLY7jJ3XaP0gDqrwfAOVYpjx1vg31XwLzcvncIWpBkfFaqoEGIGJXPPe89n7KQx/R7xg5IZbSHJnYqsY9LcxcUPs8QirokHWStNzaO/APqKFia98rTbaKffGYCMPe8l7H0Crz7UlaCMPIQKBgQDO+OmiJp29Y8auWkuR0sQmAZUWO5gVqZMux7R55BxKtWR0MR+wQ+ab4HXmJGHKBT7v2T86sJyWL7cWt+ynXeObi9D25BdX2FXybiBkt4MGpshOsm7wHj9Ut7PAC0k0l+04g0sNzoLeEBvosAyvHA4oogcaPTgtasvqk+gfsJK1XwKBgQC0e2uIgPVc845V/T8LM+qFuor+5lrO5Sud7q6n2vN24RFZahfhMAGXnQ0Jb3ICjcBR3DQ6UMaNsywwxLLcaH1edriSfRzF4/0DLY+gFC3oppbmtpx+trO7md8F9zuPJ9d7AOQ4DwuymUelPSJW5uaIuKfK9DQrNeFhkke2vVyiqQKBgEaZa4BvMbFPno8Mp+hm/5eDRKqfy2HgRR9Y6bwGToxBUbG8q/WBQ+F58F1/nYe+wFgqP8IySkeEoSxzsprokOIXEEGXTksdtTuLyyrv2hbjv0Hw5ZyshKfOPddNQjxZcoaramecQNGkpxB5NOpqZH4BvvB5X3dGjaZHq49buL97AoGARvy4WfNnDo1ZcabvEgf0eW7a1tFh7DilRDQqDCmJUzvJKCMbi13ncmu6QfjMngaFG22COWGmBvvvKKtlMl4C2ZHWnP+Kvqci0AoukKb/O5+ygMJYoVpZLTOjTeRlT7Q7A81g9k+sqS2yyWJXTFj7WdFPZftRPaGuqULw5AZtFikCgYBGCXa0Vxfx+5hy+b0ghn+3ziJEkCw9/xz70HwBR98tLJFpZ34NOVbUWGf2273ylcmZtCiIPMhHl1rpIUwOCFNzdY10g6pCcU6xaEfYnhBEC2X9QambpHxhN142KyVbYmNUeWiroKBAHkrrWHNYDHWv0dIyDgoV4FU4S1hqsoVpaA==
-    publicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkerMzqo1L2uhZdO+6Et/IMB8rAjztNI054rsnL0RMJJqXPz0DGih2h3uYNFUS1vgl5biuApG58i2MJgbbAmrxhhEqxRrXMDuQG3za654PeCYliWuda7b9LLhndKrxoF89BFYK8fZb15OCLa4yJcWHcTw9Zjo+XoKiEZCz+hKZDF6xyTxAiOQfeOu29eQwUjozXEl1D42gFpijs3U7i6kknhOWa0sOQwDX9j2BM64AUDKCA84X16TkeoJC8DserUnPI0bsNEw+spSwQV5UrPLaih1XhCNqkWFr3jQ4tLaXynR1kI5uZKdjbyxLufeHoaZqwPz6EL9OPntEFnSuMPZtwIDAQAB
-param:
-  check:
-    common-params: false
-    check-sign: false
+  cloud:
+    # Spring Cloud Gateway 配置项，对应 GatewayProperties 类
+    gateway:
+      # 路由配置项，对应 RouteDefinition 数组
+      routes:
+        - id: path_route # 路由的编号
+          uri: lb://kafka-service # 路由到的目标地址
+          predicates: # 断言，作为路由的匹配条件，对应 RouteDefinition 数组
+            - Path=/kafka/test
+        - id: url-proxy-1
+          uri: https://blog.csdn.net
+          predicates:
+            - Path=/csdn
+      discovery:
+        locator:
+          enabled: true # 是否开启，默认为 false 关闭
+          url-expression: "'lb://' + serviceId" # 路由的目标地址的表达式，默认为 "'lb://' + serviceId"
+          lower-case-service-id: true # 服务名小写
+    # 整合注册中心
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        ##注册到consul的服务名称
+        service-name: gateWay_service
+        enabled: true

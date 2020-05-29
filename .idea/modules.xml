@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/springcloud-apollo/springcloud-apollo.iml" filepath="$PROJECT_DIR$/springcloud-apollo/springcloud-apollo.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-basics/springcloud-basics.iml" filepath="$PROJECT_DIR$/springcloud-basics/springcloud-basics.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-common.iml" filepath="$PROJECT_DIR$/springcloud-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-customize-gateway/springcloud-customize-gateway.iml" filepath="$PROJECT_DIR$/springcloud-customize-gateway/springcloud-customize-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-gateway/springcloud-gateway.iml" filepath="$PROJECT_DIR$/springcloud-gateway/springcloud-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-kafka/springcloud-kafka.iml" filepath="$PROJECT_DIR$/springcloud-kafka/springcloud-kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-kafka/springcloud-kafka-facade/springcloud-kafka-facade.iml" filepath="$PROJECT_DIR$/springcloud-kafka/springcloud-kafka-facade/springcloud-kafka-facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-kafka/springcloud-kafka-service/springcloud-kafka-service.iml" filepath="$PROJECT_DIR$/springcloud-kafka/springcloud-kafka-service/springcloud-kafka-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-oauth/springcloud-oauth.iml" filepath="$PROJECT_DIR$/springcloud-oauth/springcloud-oauth.iml" />
     </modules>
   </component>
 </project>

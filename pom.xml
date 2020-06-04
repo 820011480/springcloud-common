@@ -16,6 +16,7 @@
         <module>springcloud-oauth</module>
         <module>springcloud-gateway</module>
         <module>springcloud-apollo</module>
+        <module>springcloud-redis</module>
     </modules>
 
     <parent>

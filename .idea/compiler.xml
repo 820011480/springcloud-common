@@ -14,10 +14,18 @@
         <module name="springcloud-kafka-facade" />
         <module name="springcloud-customize-gateway" />
         <module name="springcloud-kafka-service" />
-        <module name="springcloud-redis" />
+        <module name="springboot-oauth2.0-authorization" />
+        <module name="springcloud-spring" />
+        <module name="springboot-oauth2.0-simple" />
+        <module name="springboot-oauth2.0-resource" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="springboot-oauth2.0" target="1.8" />
+      <module name="springboot-oauth2.0-authorization" target="1.8" />
+      <module name="springboot-oauth2.0-resource" target="1.8" />
+      <module name="springboot-oauth2.0-simple" target="1.8" />
+      <module name="springboot-outh2.0-simple" target="1.8" />
       <module name="springcloud-apollo" target="1.8" />
       <module name="springcloud-basics" target="1.8" />
       <module name="springcloud-common" target="1.8" />
@@ -28,10 +36,15 @@
       <module name="springcloud-kafka-service" target="1.8" />
       <module name="springcloud-oauth" target="1.8" />
       <module name="springcloud-redis" target="1.8" />
+      <module name="springcloud-spring" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springboot-oauth2.0-authorization" options="-parameters" />
+      <module name="springboot-oauth2.0-resource" options="-parameters" />
+      <module name="springboot-oauth2.0-simple" options="-parameters" />
+      <module name="springboot-outh2.0-simple" options="-parameters" />
       <module name="springcloud-apollo" options="-parameters" />
       <module name="springcloud-basics" options="-parameters" />
       <module name="springcloud-customize-gateway" options="-parameters" />
@@ -41,6 +54,7 @@
       <module name="springcloud-kafka-service" options="-parameters" />
       <module name="springcloud-oauth" options="-parameters" />
       <module name="springcloud-redis" options="-parameters" />
+      <module name="springcloud-spring" options="-parameters" />
     </option>
   </component>
 </project>

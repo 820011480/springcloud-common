@@ -16,7 +16,8 @@
         <module>springcloud-oauth</module>
         <module>springcloud-gateway</module>
         <module>springcloud-apollo</module>
-        <module>springcloud-redis</module>
+        <module>springcloud-spring</module>
+        <module>springboot-oauth2.0</module>
     </modules>
 
     <parent>
@@ -69,6 +70,12 @@
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.mady.common</groupId>
+                <artifactId>springcloud-basics</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -78,11 +85,13 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

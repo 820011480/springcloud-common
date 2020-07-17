@@ -4,9 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.gateway.route.RouteLocator;
-import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
-import org.springframework.context.annotation.Bean;
 
 /**
  * @author mady
@@ -23,7 +20,7 @@ import org.springframework.context.annotation.Bean;
  */
 @Slf4j
 //开启注册中心客户端
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @SpringBootApplication
 public class GateWayApplication {
     /**
@@ -48,4 +45,13 @@ public class GateWayApplication {
 //                .route("path_route", r -> r.path("/kafka").uri("http://127.0.0.1:18081/kafka/test"))
 //                .build();
 //    }
+
+    /**
+     * @author mady
+     * @version 1.0.0
+     * @date 2020/7/14 17:39
+     * @description
+     */
+    public static class ParamInterceptor {
+    }
 }

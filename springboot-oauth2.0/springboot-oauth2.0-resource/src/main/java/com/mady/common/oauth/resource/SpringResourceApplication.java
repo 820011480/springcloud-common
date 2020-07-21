@@ -3,6 +3,8 @@ package com.mady.common.oauth.resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 /**
@@ -13,7 +15,9 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  */
 @Slf4j
 //开启资源服务器
-@EnableResourceServer
+//@EnableResourceServer
+@EnableOAuth2Sso
+//@EnableWebSecurity
 @SpringBootApplication(scanBasePackages = {"com.mady.common"})
 public class SpringResourceApplication {
 

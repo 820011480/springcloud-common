@@ -1,20 +1,16 @@
 package com.mady.common.oauth.authorization.config;
 
-import com.mady.common.oauth.authorization.filter.ValidateFilter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.web.authentication.preauth.AbstractPreAuthenticatedProcessingFilter;
 
 /**
  * @author mady
@@ -25,8 +21,8 @@ import org.springframework.security.web.authentication.preauth.AbstractPreAuthen
 @EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private ValidateFilter validateCodeFilter;
+//    @Autowired
+//    private ValidateFilter validateCodeFilter;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -67,18 +63,22 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                // 添加路径
-                .antMatchers("/oauth2/sms").access("permitAll()")
-                .antMatchers("/oauth2/phone").access("permitAll()")
-                .antMatchers("/oauth2/code").access("permitAll()")
-//                .antMatchers("/code/*").permitAll()
-                .anyRequest()
-                .authenticated()
-                // 务必关闭 csrf，否则除了 get 请求，都会报 403 错误
-                .and()
-                .csrf().disable();
-        // 添加过滤器
-        http.addFilterBefore(validateCodeFilter, AbstractPreAuthenticatedProcessingFilter.class);
+        //重写父类请求，进行表单认证
+        ((HttpSecurity)((HttpSecurity)((ExpressionUrlAuthorizationConfigurer.AuthorizedUrl)http.authorizeRequests()
+//                .antMatchers("/favicon.ico").access("permitAll()")
+                .anyRequest()).authenticated().and()).formLogin().and()).httpBasic();
+
+//        http.authorizeRequests()
+//                // 添加路径
+//                .antMatchers("/favicon.ico").access("permitAll()")
+////                .antMatchers("/oauth2/phone").access("permitAll()")
+////                .antMatchers("/oauth2/code").access("permitAll()")
+////                .antMatchers("/code/*").permitAll()
+//                .anyRequest()
+//                .authenticated()
+//                // 务必关闭 csrf，否则除了 get 请求，都会报 403 错误
+//                .and()
+//                .csrf().disable();
+//        http.addFilterBefore(validateCodeFilter, AbstractPreAuthenticatedProcessingFilter.class);
     }
 }

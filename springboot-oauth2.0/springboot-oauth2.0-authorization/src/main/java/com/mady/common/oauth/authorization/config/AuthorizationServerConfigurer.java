@@ -96,7 +96,7 @@ public class AuthorizationServerConfigurer extends AuthorizationServerConfigurer
                 // 刷新 token 的有效期
                 .refreshTokenValiditySeconds(Math.toIntExact(Duration.ofHours(1).getSeconds()))
                 // 授权码模式的重定向地址
-                .redirectUris("http://example.com");
+                .redirectUris("http://127.0.0.1:8082/login");
         /**
          * 数据库方式配置
          */

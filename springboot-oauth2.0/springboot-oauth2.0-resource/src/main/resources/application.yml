@@ -1,12 +1,15 @@
 server:
   port: 8082
-
-devtools:
-  livereload:
-    enabled: true #是否支持livereload
-    port: 35730
-  restart:
-    enabled: true #是否支持热部署
+  servlet:
+    session:
+      cookie:
+        name: SSO-SESSIONID # 自定义 Session 的 Cookie 名字，防止冲突。冲突后，会导致 SSO 登录失败。
+#devtools:
+#  livereload:
+#    enabled: true #是否支持livereload
+#    port: 35730
+#  restart:
+#    enabled: true #是否支持热部署
 
 logging:
   level:
@@ -40,7 +43,8 @@ security:
     #客户端配置
     client:
       access-token-uri: http://localhost:8081/oauth/token
-      registered-redirect-uri: http://example.com
+      user-authorization-uri: http://127.0.0.1:8081/oauth/authorize
+      registered-redirect-uri: http://127.0.0.1:8082/login
       client-id: oauth2
       client-secret: oauth2
       resource-ids: oauth2

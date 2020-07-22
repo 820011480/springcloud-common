@@ -1,10 +1,18 @@
 server:
   port: 8081
+  servlet:
+    session:
+      cookie:
+#        path: /
+        name: 1
+
 logging:
   level:
     org:
       springframework:
         security: DEBUG
+
+
 spring:
   application:
     name: spring-oauth2-authorization

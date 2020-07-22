@@ -1,7 +1,9 @@
 package com.mady.common.oauth.authorization.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -23,6 +25,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 //    @Autowired
 //    private ValidateFilter validateCodeFilter;
+
+    @Autowired
+    private CustomLogoutSuccessHandler customLogoutSuccessHandler;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -63,11 +68,29 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //重写父类请求，进行表单认证
+
+//
+//        http
+//                .requestMatchers().antMatchers("/oauth/**","/login/**","/logout/**")
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers("/oauth/**").access("permitAll()")
+//                .and()
+//                .formLogin().permitAll();
+
+
+
+//        重写父类请求，进行表单认证
         ((HttpSecurity)((HttpSecurity)((ExpressionUrlAuthorizationConfigurer.AuthorizedUrl)http.authorizeRequests()
 //                .antMatchers("/favicon.ico").access("permitAll()")
-                .anyRequest()).authenticated().and()).formLogin().and()).httpBasic();
-
+                .anyRequest()).authenticated().and()).formLogin().and()).httpBasic().and()
+                // 默认为 /logout
+                .logout()
+                .logoutSuccessHandler(customLogoutSuccessHandler)
+                // 无效会话
+                .invalidateHttpSession(true)
+                // 清除身份验证
+                .clearAuthentication(true).permitAll();
 //        http.authorizeRequests()
 //                // 添加路径
 //                .antMatchers("/favicon.ico").access("permitAll()")

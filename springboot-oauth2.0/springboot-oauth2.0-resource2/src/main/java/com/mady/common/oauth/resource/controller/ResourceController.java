@@ -17,9 +17,9 @@ import java.security.Principal;
 @RequestMapping("/resource")
 public class ResourceController {
 
-    @RequestMapping("/user")
+    @RequestMapping("/user2")
 //    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public String getResource(Principal principal){
-        return ResponseEntity.ok(principal).toString();
+        return "this is resource2"+ResponseEntity.ok(principal).toString();
     }
 }

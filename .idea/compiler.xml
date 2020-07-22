@@ -18,6 +18,7 @@
         <module name="springcloud-spring" />
         <module name="springboot-oauth2.0-simple" />
         <module name="springboot-oauth2.0-resource" />
+        <module name="springbootoauth20resource2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -26,6 +27,7 @@
       <module name="springboot-oauth2.0-resource" target="1.8" />
       <module name="springboot-oauth2.0-simple" target="1.8" />
       <module name="springboot-outh2.0-simple" target="1.8" />
+      <module name="springbootoauth20resource2" target="1.8" />
       <module name="springcloud-apollo" target="1.8" />
       <module name="springcloud-basics" target="1.8" />
       <module name="springcloud-common" target="1.8" />
@@ -45,6 +47,7 @@
       <module name="springboot-oauth2.0-resource" options="-parameters" />
       <module name="springboot-oauth2.0-simple" options="-parameters" />
       <module name="springboot-outh2.0-simple" options="-parameters" />
+      <module name="springbootoauth20resource2" options="-parameters" />
       <module name="springcloud-apollo" options="-parameters" />
       <module name="springcloud-basics" options="-parameters" />
       <module name="springcloud-customize-gateway" options="-parameters" />

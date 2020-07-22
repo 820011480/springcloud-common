@@ -1,6 +1,5 @@
 package com.mady.common.oauth.authorization.config;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +10,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.builders.InMemoryClientDetailsServiceBuilder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
@@ -20,6 +18,7 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 import javax.sql.DataSource;
@@ -39,7 +38,7 @@ import java.util.Base64;
  * 作用是:
  * 1. 授权 认证
  * 2. 发放token
-*/
+ */
 @Configuration
 public class AuthorizationServerConfigurer extends AuthorizationServerConfigurerAdapter {
 
@@ -83,20 +82,24 @@ public class AuthorizationServerConfigurer extends AuthorizationServerConfigurer
         builder.withClient("oauth2")
                 // 设置她的密钥，加密后的
                 .secret(passwordEncoder.encode("oauth2"))
-                // 设置允许访问的资源 id
-                .resourceIds("oauth2")
                 // 授权的类型
                 .authorizedGrantTypes("password", "authorization_code", "refresh_token")
                 // 可以授权的角色
                 .authorities("ROLE_ADMIN", "ROLE_USER")
                 // 授权的范围
                 .scopes("all")
-                // token 有效期
-                .accessTokenValiditySeconds(Math.toIntExact(Duration.ofHours(1).getSeconds()))
                 // 刷新 token 的有效期
-                .refreshTokenValiditySeconds(Math.toIntExact(Duration.ofHours(1).getSeconds()))
-                // 授权码模式的重定向地址
-                .redirectUris("http://127.0.0.1:8082/login");
+                .redirectUris("http://127.0.0.1:8082/login")
+                .and()
+                .withClient("oauth3")
+                .secret(passwordEncoder.encode("oauth3"))
+                .authorizedGrantTypes("password", "authorization_code", "refresh_token")
+                .scopes("all")
+                // token 有效期
+                .authorities("ROLE_ADMIN", "ROLE_USER")
+                // 刷新 token 的有效期
+                .redirectUris("http://127.0.0.1:8083/login");
+
         /**
          * 数据库方式配置
          */
@@ -128,8 +131,8 @@ public class AuthorizationServerConfigurer extends AuthorizationServerConfigurer
         //使用内存模式存储Token
 //        endpoints.tokenStore(getRedisTokenStore());
         //使用jwt模式
-        endpoints.tokenStore(getRedisTokenStore())
-        .accessTokenConverter(jwtAccessTokenConverter());
+        endpoints.tokenStore(jwtTokenStore())
+                .accessTokenConverter(jwtAccessTokenConverter());
 
         TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
         tokenEnhancerChain.setTokenEnhancers(
@@ -158,11 +161,11 @@ public class AuthorizationServerConfigurer extends AuthorizationServerConfigurer
         return new RedisTokenStore(factory);
     }
 
-//    @Bean
-//    public TokenStore jwtTokenStore() throws NoSuchAlgorithmException {
-//
-//        return new JwtTokenStore(jwtAccessTokenConverter());
-//    }
+    @Bean
+    public TokenStore jwtTokenStore() throws NoSuchAlgorithmException {
+
+        return new JwtTokenStore(jwtAccessTokenConverter());
+    }
 
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() throws NoSuchAlgorithmException {
@@ -175,8 +178,6 @@ public class AuthorizationServerConfigurer extends AuthorizationServerConfigurer
         SecureRandom secureRandom = new SecureRandom();
         keyPairGenerator.initialize(keyLength, secureRandom);
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
-        System.out.println(Base64.getEncoder().encodeToString(keyPair.getPrivate().getEncoded()));
-        System.out.println(Base64.getEncoder().encodeToString(keyPair.getPublic().getEncoded()));
         converter.setKeyPair(keyPair);
         return converter;
     }

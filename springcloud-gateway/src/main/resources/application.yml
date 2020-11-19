@@ -1,6 +1,6 @@
-#server.port
-server:
-  port: 18083
+
+
+
 #application.name
 #spring:
 #  devtools:
@@ -27,6 +27,8 @@ server:
 spring:
   application:
     name: gateWay_service
+  profiles:
+    active: T2
 #  cloud:
 #    # Spring Cloud Gateway 配置项，对应 GatewayProperties 类
 #    gateway:
@@ -63,6 +65,7 @@ spring:
         max-active: 8 #连接池最大连接数（使用负值表示没有限制）
         max-wait: -1 #连接池最大阻塞等待时间（使用负值表示没有限制）
         max-idle: 8  #连接池中的最大空闲连接
+
 #redis 配置
 #======================================= 以上放置starter配置 ，以下放置其他配置 =================================================
 #日志文件
@@ -80,17 +83,19 @@ logging:
 #      client_secret: password
 #      registered-redirect-uri: http://localhost:18082/oauth/redirect/url
 
-
-api:
-  security:
-    oauth2:
-      storeType: redis
-      jwtSignKey: 1234567890
-      clients[0]:
-        clientId: test
-        clientSecret: testsecret
-        accessTokenValiditySeconds: 1800
-      clients[1]:
-        clientId: myid
-        clientSecret: mysecret
-        accessTokenValiditySeconds: 3600
+#
+#api:
+#  security:
+#    oauth2:
+#      storeType: redis
+#      jwtSignKey: 1234567890
+#      clients[0]:
+#        clientId: test
+#        clientSecret: testsecret
+#        accessTokenValiditySeconds: 1800
+#      clients[1]:
+#        clientId: myid
+#        clientSecret: mysecret
+server:
+  port: 8089
+#        accessTokenValiditySeconds: 3600

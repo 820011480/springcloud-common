@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springcloud-common</artifactId>
+        <groupId>com.mady.common</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>springcloud-maven</artifactId>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.mady.common</groupId>
+                <artifactId>springcloud-basics</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+    </dependencies>
+    <build>
+<!-- <resources> <testResources> 虽然影响maven规定都可以定义多个         -->
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>${basedir}/src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+<!--Maven 属性只有再POM中解析 需要再资源文件中解析时需要引入maven-resources-plugin-->
+<!--    profile的种类-->
+<!--    pom.xml:很显然，pom.xml中声明的profile只对当前项目有效。-->
+<!--    用户settings.xml:用户目录下的.m2/settings.xml中的profile对本机上该用户所有的Maven项目有效。-->
+<!--    全局settings.xml:Maven安装目录下conf/settings.xml中的profile对本机上所有的Maven项目有效。-->
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <db.driver>com.mysql.jdbc.Driver</db.driver>
+                <db.url>jdbc:mysql://localhost:3306/test</db.url>
+                <db.username>dev</db.username>
+                <db.password>dev-pwd</db.password>
+                <echo>${db.password}</echo>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <db.driver>com.mysql.jdbc.Driver</db.driver>
+                <db.url>jdbc:mysql://localhost:3306/test</db.url>
+                <db.username>test</db.username>
+                <db.password>test-pwd</db.password>
+                <echo>${db.password}</echo>
+            </properties>
+        </profile>
+    </profiles>
+</project>

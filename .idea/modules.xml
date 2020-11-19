@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/springboot-java/springboot-java.iml" filepath="$PROJECT_DIR$/springboot-java/springboot-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0.iml" filepath="$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-authorization/springboot-oauth2.0-authorization.iml" filepath="$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-authorization/springboot-oauth2.0-authorization.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-resource/springboot-oauth2.0-resource.iml" filepath="$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-resource/springboot-oauth2.0-resource.iml" />
@@ -15,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/springcloud-kafka/springcloud-kafka.iml" filepath="$PROJECT_DIR$/springcloud-kafka/springcloud-kafka.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-kafka/springcloud-kafka-facade/springcloud-kafka-facade.iml" filepath="$PROJECT_DIR$/springcloud-kafka/springcloud-kafka-facade/springcloud-kafka-facade.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-kafka/springcloud-kafka-service/springcloud-kafka-service.iml" filepath="$PROJECT_DIR$/springcloud-kafka/springcloud-kafka-service/springcloud-kafka-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloud-maven/springcloud-maven.iml" filepath="$PROJECT_DIR$/springcloud-maven/springcloud-maven.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-oauth/springcloud-oauth.iml" filepath="$PROJECT_DIR$/springcloud-oauth/springcloud-oauth.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-spring/springcloud-spring.iml" filepath="$PROJECT_DIR$/springcloud-spring/springcloud-spring.iml" />
     </modules>

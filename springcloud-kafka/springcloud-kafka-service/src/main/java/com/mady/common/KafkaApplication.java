@@ -21,5 +21,4 @@ public class KafkaApplication {
         SpringApplication.run(KafkaApplication.class, args);
         log.info("kafkaApplication start success...");
     }
-
 }

@@ -18,6 +18,8 @@
         <module>springcloud-apollo</module>
         <module>springcloud-spring</module>
         <module>springboot-oauth2.0</module>
+        <module>springcloud-maven</module>
+        <module>springboot-java</module>
     </modules>
 
     <parent>
@@ -75,6 +77,18 @@
                 <groupId>com.mady.common</groupId>
                 <artifactId>springcloud-basics</artifactId>
                 <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>2.7.3</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
         </dependencies>
     </dependencyManagement>

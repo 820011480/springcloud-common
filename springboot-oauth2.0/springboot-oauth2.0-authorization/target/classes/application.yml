@@ -1,0 +1,52 @@
+server:
+  port: 8081
+  servlet:
+    session:
+      cookie:
+#        path: /
+        name: 1
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+
+spring:
+  application:
+    name: spring-oauth2-authorization
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/outh2?autoReconnect=true&failOverReadOnly=false&createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    timeout: 1000
+    lettuce:
+      pool:
+        max-active: 8 #连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1 #连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 8  #连接池中的最大空闲连接
+#注册回调地址
+#security:
+#  oauth2:
+#    #客户端配置
+#    client:
+#      registered-redirect-uri: http://example.com
+#      client-id: a26af199-14a5-4d26-bb91-2639521cd20a
+#      client-secret: efb1d509-b0cf-4040-ab30-6c39b02b4dfc
+#      resource-ids: oauth2
+#      refresh-token-validity-seconds: 6000
+#      access-token-validity-seconds: 6000
+#      scope: all
+#    #资源服务配置
+#    resource:
+#      id: oauth2
+#     #授权服务器配置
+#    authorization:
+#      check-token-access: isAuthenticated()

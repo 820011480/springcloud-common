@@ -1,0 +1,100 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<configuration>-->
+<!--    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>-->
+<!--    <springProperty scope="context" name="springAppName" source="spring.application.name"/>-->
+<!--    &lt;!&ndash; 控制台输出日志的格式 &ndash;&gt;-->
+<!--    <property name="CONSOLE_LOG_PATTERN"-->
+<!--              value="%d{yyyy-MM-dd HH:mm:ss.SSS},${springAppName:-},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-B3-ParentSpanId:-},%X{X-B4-fromServiceName:-},%X{X-B4-toServiceName:-},${PID:-},%thread,%-5level,%logger{50},%marker,%msg%n"/>-->
+<!--    &lt;!&ndash; 控制台输出 &ndash;&gt;-->
+<!--    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--        <encoder>-->
+<!--            <pattern>${CONSOLE_LOG_PATTERN}</pattern>-->
+<!--            <charset>utf8</charset>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+<!--    &lt;!&ndash; 异步写入Json格式的文件日志 &ndash;&gt;-->
+<!--    <appender name="APPLICATION_LOG" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">-->
+<!--            <providers>-->
+<!--                &lt;!&ndash;时间戳&ndash;&gt;-->
+<!--                <timestamp>-->
+<!--                    <pattern>yyyy-MM-dd'T'HH:mm:ss.SSS</pattern>-->
+<!--                    <timeZone>GMT+8</timeZone>-->
+<!--                </timestamp>-->
+<!--                &lt;!&ndash;版本号&ndash;&gt;-->
+<!--                <version>-->
+<!--                    <version>1</version>-->
+<!--                </version>-->
+<!--                &lt;!&ndash;常规字段&ndash;&gt;-->
+<!--                <pattern>-->
+<!--                    <pattern>-->
+<!--                        {-->
+<!--                        "second_timestamp": "%d{yyyy-MM-dd HH:mm:ss}",-->
+<!--                        "trace_id": "%X{X-B3-TraceId:-}",-->
+<!--                        "span_id": "%X{X-B3-SpanId:-}",-->
+<!--                        "parent_span_id": "%X{X-B3-ParentSpanId:-}",-->
+<!--                        "exportable_span_id": "%X{X-Span-Export:-}",-->
+<!--                        "pid": "${PID:-}",-->
+<!--                        "log_level": "%level",-->
+<!--                        "app_name": "${springAppName:-}",-->
+<!--                        "from_service_name":"%X{X-B4-fromServiceName:-}",-->
+<!--                        "to_service_name":"%X{X-B4-toServiceName:-}",-->
+<!--                        "thread": "%thread",-->
+<!--                        "logger": "%logger{50}",-->
+<!--                        "msg": "%message"-->
+<!--                        }-->
+<!--                    </pattern>-->
+<!--                </pattern>-->
+<!--                &lt;!&ndash;添加自定义字段&ndash;&gt;-->
+<!--                <logstashMarkers/>-->
+<!--                &lt;!&ndash;由于spring-boot 1.4.2自带的logback版本有bug，导致无法使用堆栈配置的功能，目前不升级springboot只能打全栈&ndash;&gt;-->
+<!--                <stackTrace/>-->
+<!--                &lt;!&ndash;<stackTrace>-->
+<!--                    <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">-->
+<!--                        <maxDepthPerThrowable>30</maxDepthPerThrowable>-->
+<!--                        <maxLength>2048</maxLength>-->
+<!--                        <shortenedClassNameLength>20</shortenedClassNameLength>-->
+<!--                        <exclude>^sun\.reflect\..*\.invoke</exclude>-->
+<!--                        <exclude>^net\.sf\.cglib\.proxy\.MethodProxy\.invoke</exclude>-->
+<!--                        <rootCauseFirst>true</rootCauseFirst>-->
+<!--                    </throwableConverter>-->
+<!--                </stackTrace>&ndash;&gt;-->
+<!--            </providers>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
+<!--    <springProfile name="dev">-->
+<!--        <logger name="com.scpp" level="INFO" additivity="false">-->
+<!--            <appender-ref ref="APPLICATION_LOG"/>-->
+<!--        </logger>-->
+<!--    </springProfile>-->
+
+<!--    <springProfile name="mock">-->
+<!--        <logger name="com.scpp" level="INFO" additivity="false">-->
+<!--            <appender-ref ref="APPLICATION_LOG"/>-->
+<!--        </logger>-->
+<!--    </springProfile>-->
+
+<!--    <springProfile name="test">-->
+<!--        <logger name="com.scpp" level="INFO" additivity="false">-->
+<!--            <appender-ref ref="APPLICATION_LOG"/>-->
+<!--        </logger>-->
+<!--    </springProfile>-->
+
+<!--    <springProfile name="prod">-->
+<!--        <logger name="com.scpp" level="INFO" additivity="false">-->
+<!--            <appender-ref ref="APPLICATION_LOG"/>-->
+<!--        </logger>-->
+<!--    </springProfile>-->
+
+<!--    <springProfile name="demo">-->
+<!--        <logger name="com.scpp" level="INFO" additivity="false">-->
+<!--            <appender-ref ref="CONSOLE"/>-->
+<!--        </logger>-->
+<!--    </springProfile>-->
+
+<!--    <root level="INFO">-->
+<!--        <appender-ref ref="APPLICATION_LOG"/>-->
+<!--    </root>-->
+
+<!--</configuration>-->

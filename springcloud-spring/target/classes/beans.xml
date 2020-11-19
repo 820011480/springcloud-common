@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--起个别名-->
+    <alias name="userBean" alias="userBeanAlias" />
+
+    <bean id="userBean"  class="com.mady.common.spring.domain.User">
+        <!-- 属性依赖注入，底层会自动封装，只要在dao实现类提供属性和set方法就行 -->
+        <property name="name" value="mady"></property>
+        <property name="age" value= "18"></property>
+    </bean>
+</beans>

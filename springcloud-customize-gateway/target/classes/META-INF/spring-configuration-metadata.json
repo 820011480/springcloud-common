@@ -1,0 +1,61 @@
+{
+  "groups": [
+    {
+      "name": "enable.ssl",
+      "type": "com.mady.common.config.SecretProperties",
+      "sourceType": "com.mady.common.config.SecretProperties"
+    },
+    {
+      "name": "param.check",
+      "type": "com.mady.common.config.ParamCheckProperties",
+      "sourceType": "com.mady.common.config.ParamCheckProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "enable.ssl.private-key",
+      "type": "java.lang.String",
+      "description": "私钥",
+      "sourceType": "com.mady.common.config.SecretProperties"
+    },
+    {
+      "name": "enable.ssl.public-key",
+      "type": "java.lang.String",
+      "description": "公钥",
+      "sourceType": "com.mady.common.config.SecretProperties"
+    },
+    {
+      "name": "enable.ssl.support-type",
+      "type": "java.lang.Boolean",
+      "description": "是否支持加密",
+      "sourceType": "com.mady.common.config.SecretProperties"
+    },
+    {
+      "name": "param.check.charset-type",
+      "type": "java.util.List<java.lang.String>",
+      "description": "支持字符集",
+      "sourceType": "com.mady.common.config.ParamCheckProperties"
+    },
+    {
+      "name": "param.check.check-sign",
+      "type": "java.lang.Boolean",
+      "description": "是否进行验签",
+      "sourceType": "com.mady.common.config.ParamCheckProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "param.check.common-params",
+      "type": "java.lang.Boolean",
+      "description": "检查公共参数",
+      "sourceType": "com.mady.common.config.ParamCheckProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "param.check.sign-type",
+      "type": "java.util.List<java.lang.String>",
+      "description": "支持验签方式",
+      "sourceType": "com.mady.common.config.ParamCheckProperties"
+    }
+  ],
+  "hints": []
+}

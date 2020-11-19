@@ -1,0 +1,30 @@
+server:
+  port: 18081
+#application.name
+spring:
+  application:
+    name: kafka_service
+  #redis 配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+    timeout: 1000
+  #consul 配置
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        ##注册到consul的服务名称
+        service-name: kafka_service
+        enabled: true
+  profiles:
+    active: dev
+#======================================= 以上放置starter配置 ，以下放置其他配置 =================================================
+#日志文件
+#logging:
+#  config: classpath:logback-spring.xml.demo
+#
+
+

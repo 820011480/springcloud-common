@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+
+devtools:
+  livereload:
+    enabled: true #是否支持livereload
+    port: 35729
+  restart:
+    enabled: true #是否支持热部署
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+#注册回调地址
+
+
+security:
+  oauth2:
+    #客户端配置
+    client:
+      registered-redirect-uri: http://example.com
+      client-id: a26af199-14a5-4d26-bb91-2639521cd20a
+      client-secret: efb1d509-b0cf-4040-ab30-6c39b02b4dfc
+      resource-ids: oauth2
+      refresh-token-validity-seconds: 6000
+      access-token-validity-seconds: 6000
+      scope: all
+    #资源服务配置
+    resource:
+      id: oauth2
+     #授权服务器配置
+    authorization:
+      check-token-access: isAuthenticated()

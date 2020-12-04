@@ -24,7 +24,7 @@ spring:
 #======================================= 以上放置starter配置 ，以下放置其他配置 =================================================
 #日志文件
 #logging:
-#  config: classpath:logback-spring.xml.demo
+#  config: classpath:logback-spring.xml
 #
 enable:
   ssl:
@@ -35,5 +35,24 @@ param:
   check:
     common-params: false
     check-sign: false
+
+
+dubbo:
+  registry:
+    address: 127.0.0.1:2181
+    protocol: zookeeper
+    file: /opt/scpp/dubbo/trade/dubbo-registry.properties
+  protocol:
+    name: dubbo
+    charset: UTF-8
+    port: 21890
+  application:
+    name: order-provider
+  scan:
+    basePackages: com.mady.common
+  consumer:
+    filter: consumerFilter
+  provider:
+    filter: providerFilter
 
 

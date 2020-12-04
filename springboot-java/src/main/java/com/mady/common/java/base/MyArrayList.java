@@ -14,6 +14,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class MyArrayList  {
 
     private static List<Integer> list = new ArrayList<>();
+    static Object[] objs = new Object[]{1,2,3};
 
     public static void main(String[] args) {
 //        for (int i = 0; i < 10; i++) {
@@ -50,26 +51,25 @@ public class MyArrayList  {
 //        linkedList.add(1,null);
 //        System.out.println(linkedList);
         //实时性集合测试
-        Object[] objs = new Object[]{1,2,3};
         CopyOnWriteArrayList<Object> list = new CopyOnWriteArrayList<Object>(Arrays.asList(objs));
-//        realTimeMethod(objs);
+        realTimeMethod(list);
         noRealTimeMethod(list);
     }
 
     /**
      * 实时
-     * @param objs
+     * @param list
      */
-    private static void realTimeMethod(Object[] objs) {
+    private static void realTimeMethod(CopyOnWriteArrayList<Object> list) {
         Thread thread1 = new Thread(()->{
             System.out.println(Thread.currentThread().getName() + "当前线程读取到的objs:{" + Arrays.toString(objs) + "}");
-            for (int i = 0; i < objs.length; i++) {
+            for (int i = 0; i < list.size(); i++) {
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(Thread.currentThread().getName() + ":" +objs[i]);
+                System.out.println(Thread.currentThread().getName() + ":" +list.get(i));
             }
         });
         thread1.start();
@@ -100,7 +100,7 @@ public class MyArrayList  {
 
         Thread thread2 = new Thread(()->{
             System.out.println(Thread.currentThread().getName() + "当前线程读取到的objs:{" + list + "}");
-            list.set(2, 10);
+//            list.set(2, 10);
         });
         thread2.start();
     }

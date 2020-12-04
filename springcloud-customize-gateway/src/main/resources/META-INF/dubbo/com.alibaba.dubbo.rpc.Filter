@@ -1,0 +1,2 @@
+providerFilter=com.mady.common.config.ProviderFilter
+consumerFilter=com.mady.common.config.ConsumerFilter

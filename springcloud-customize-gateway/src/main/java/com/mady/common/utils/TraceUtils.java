@@ -37,7 +37,7 @@ public class TraceUtils {
 
 
     public static void setRpcTraceId(){
-        String traceId = RpcContext.getContext().getAttachment(TRACE_ID);
+        String traceId = MDC.get(MDC_TRACE_ID);
         if (StringUtils.isEmpty(traceId)){
             traceId = newTraceId();
         }
@@ -45,11 +45,10 @@ public class TraceUtils {
     }
 
     public static void getRpcTraceId(){
-        //防止取到上一次的trace_id
-        clearTraceId(TRACE_ID);
         String traceId = RpcContext.getContext().getAttachment(TRACE_ID);
+        //当前MDC（线程）中是否存在
         if (StringUtils.isEmpty(traceId)){
-            traceId = newTraceId();
+            traceId = MDC.get(MDC_TRACE_ID);
         }
         MDC.put(MDC_TRACE_ID, traceId);
     }
@@ -67,5 +66,16 @@ public class TraceUtils {
      */
     public static void clearTraceId(String traceId){
         MDC.remove(traceId);
+    }
+
+    /**
+     * 设置trace_id
+     */
+    public static void setTraceIdIfAbsent() {
+        String traceId = MDC.get(MDC_TRACE_ID);
+        if(StringUtils.isEmpty(traceId)){
+            traceId = newTraceId();
+        }
+        MDC.put(MDC_TRACE_ID, traceId);
     }
 }

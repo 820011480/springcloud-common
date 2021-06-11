@@ -11,10 +11,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * @date 2020/7/28 9:42
  * @description
  */
-public class MyArrayList  {
+public class MyArrayList {
 
     private static List<Integer> list = new ArrayList<>();
-    static Object[] objs = new Object[]{1,2,3};
+    static Object[] objs = new Object[]{1, 2, 3};
 
     public static void main(String[] args) {
 //        for (int i = 0; i < 10; i++) {
@@ -58,10 +58,11 @@ public class MyArrayList  {
 
     /**
      * 实时
+     *
      * @param list
      */
     private static void realTimeMethod(CopyOnWriteArrayList<Object> list) {
-        Thread thread1 = new Thread(()->{
+        Thread thread1 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "当前线程读取到的objs:{" + Arrays.toString(objs) + "}");
             for (int i = 0; i < list.size(); i++) {
                 try {
@@ -69,11 +70,11 @@ public class MyArrayList  {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(Thread.currentThread().getName() + ":" +list.get(i));
+                System.out.println(Thread.currentThread().getName() + ":" + list.get(i));
             }
         });
         thread1.start();
-        Thread thread2 = new Thread(()->{
+        Thread thread2 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "当前线程读取到的objs:{" + Arrays.toString(objs) + "}");
             objs[2] = 9;
         });
@@ -82,10 +83,11 @@ public class MyArrayList  {
 
     /**
      * 非实时
+     *
      * @param list
      */
     private static void noRealTimeMethod(CopyOnWriteArrayList<Object> list) {
-        Thread thread1 = new Thread(()->{
+        Thread thread1 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "当前线程读取到的objs:{" + list + "}");
             for (int i = 0; i < list.size(); i++) {
                 try {
@@ -93,12 +95,12 @@ public class MyArrayList  {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(Thread.currentThread().getName() + ":" +list.get(i));
+                System.out.println(Thread.currentThread().getName() + ":" + list.get(i));
             }
         });
         thread1.start();
 
-        Thread thread2 = new Thread(()->{
+        Thread thread2 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "当前线程读取到的objs:{" + list + "}");
 //            list.set(2, 10);
         });

@@ -12,15 +12,15 @@ import java.util.LinkedHashMap;
 public class MathDemo {
 
     public static void main(String[] args) {
-        HashMap<String,String> hashMap = new HashMap<>(8, 0.75F);
-        LinkedHashMap<String,String> linkedHashMap = new LinkedHashMap<>(8, 0.75F);
+        HashMap<String, String> hashMap = new HashMap<>(8, 0.75F);
+        LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>(8, 0.75F);
 //        hashMap.put("test","test");
 //        Set<Map.Entry<String, String>> entries = hashMap.entrySet();
 //        System.out.println(entries);
         int i;
         for (i = 0; i < 30; i++) {
-            linkedHashMap.put(i+"", i+"");
-            hashMap.put(i+"", i+"");
+            linkedHashMap.put(i + "", i + "");
+            hashMap.put(i + "", i + "");
             System.out.println(i);
         }
         System.out.println(linkedHashMap);

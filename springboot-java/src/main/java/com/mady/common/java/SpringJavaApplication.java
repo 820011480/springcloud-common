@@ -16,6 +16,7 @@ public class SpringJavaApplication {
 
     /**
      * 指定初始化类
+     *
      * @param args
      */
     public static void main(String[] args) {

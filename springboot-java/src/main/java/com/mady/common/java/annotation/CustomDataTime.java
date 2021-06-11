@@ -22,19 +22,19 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * @date 2020/10/15 15:30
  * @description
  */
-@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE })
+@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
 @Retention(RUNTIME)
 @Repeatable(CustomDataTime.List.class)
 @Documented
-@Constraint(validatedBy = { })
+@Constraint(validatedBy = {})
 public @interface CustomDataTime {
 
 
     String message() default "{javax.validation.constraints.NotNull.message}";
 
-    Class<?>[] groups() default { };
+    Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default { };
+    Class<? extends Payload>[] payload() default {};
 
     String format() default "yyyy-MM-dd hh:mm:ss";
 
@@ -43,7 +43,7 @@ public @interface CustomDataTime {
      *
      * @see javax.validation.constraints.NotNull
      */
-    @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE })
+    @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
     @Retention(RUNTIME)
     @Documented
     @interface List {

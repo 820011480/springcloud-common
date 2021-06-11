@@ -23,7 +23,7 @@ public class ValidatorUtils {
 
     private static Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
-    public static <T> List<String> valid(T obj, Class<?>... groups){
+    public static <T> List<String> valid(T obj, Class<?>... groups) {
         //入参为空返回
         if (obj == null) {
             return Collections.singletonList("请求参数为空");

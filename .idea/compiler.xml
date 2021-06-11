@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <option name="USE_RELEASE_OPTION" value="false" />
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -14,10 +15,10 @@
         <module name="springcloud-gateway" />
         <module name="springboot-java" />
         <module name="springcloud-customize-gateway" />
-        <module name="springcloud-maven" />
         <module name="springcloud-apollo" />
         <module name="springcloud-basics" />
         <module name="springcloud-kafka-facade" />
+        <module name="springcloud-maven" />
         <module name="springcloud-spring" />
         <module name="springcloud-oauth" />
         <module name="springboot-oauth2.0-resource" />

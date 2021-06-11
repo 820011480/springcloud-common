@@ -19,9 +19,9 @@ import java.util.List;
  * @date 2020/7/24 11:23
  * @description 快速失败机制
  */
-public class FailFastDemo{
+public class FailFastDemo {
 
-    public  List<Integer> list = new ArrayList<>();
+    public List<Integer> list = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
 //        FailFastDemo failFastDemo = new FailFastDemo();
@@ -48,16 +48,15 @@ public class FailFastDemo{
     }
 
 
-
-   void addTest(){
-      List<Integer> list = new ArrayList<Integer>();
-      list.add(0);
-      list.add(0);
-      list.add(0);
-      this.list = list;
+    void addTest() {
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(0);
+        list.add(0);
+        list.add(0);
+        this.list = list;
     }
 
-    void addTest2(){
+    void addTest2() {
         List<Integer> list = this.list;
         list.add(0);
         list.add(0);
@@ -66,7 +65,7 @@ public class FailFastDemo{
 }
 
 
-class MyList extends ArrayList{
+class MyList extends ArrayList {
 
     @Override
     public String[] toArray() {

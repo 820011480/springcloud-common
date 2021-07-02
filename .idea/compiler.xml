@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <option name="USE_RELEASE_OPTION" value="false" />
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springbootoauth20resource2" />
         <module name="springboot-oauth2.0-authorization" />
         <module name="springcloud-kafka-service" />
         <module name="springboot-oauth2.0-simple" />
+        <module name="springboot-oauth2.0-resource2" />
         <module name="springcloud-gateway" />
         <module name="springboot-java" />
         <module name="springcloud-customize-gateway" />
+        <module name="springcloud-maven" />
         <module name="springcloud-apollo" />
         <module name="springcloud-basics" />
         <module name="springcloud-kafka-facade" />
-        <module name="springcloud-maven" />
         <module name="springcloud-spring" />
         <module name="springcloud-oauth" />
         <module name="springboot-oauth2.0-resource" />
@@ -29,9 +28,8 @@
       <module name="springboot-oauth2.0" target="1.8" />
       <module name="springboot-oauth2.0-authorization" target="1.8" />
       <module name="springboot-oauth2.0-resource" target="1.8" />
+      <module name="springboot-oauth2.0-resource2" target="1.8" />
       <module name="springboot-oauth2.0-simple" target="1.8" />
-      <module name="springboot-outh2.0-simple" target="1.8" />
-      <module name="springbootoauth20resource2" target="1.8" />
       <module name="springcloud-apollo" target="1.8" />
       <module name="springcloud-basics" target="1.8" />
       <module name="springcloud-common" target="1.8" />
@@ -42,7 +40,6 @@
       <module name="springcloud-kafka-service" target="1.8" />
       <module name="springcloud-maven" target="1.8" />
       <module name="springcloud-oauth" target="1.8" />
-      <module name="springcloud-redis" target="1.8" />
       <module name="springcloud-spring" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -51,19 +48,16 @@
       <module name="springboot-java" options="-parameters" />
       <module name="springboot-oauth2.0-authorization" options="-parameters" />
       <module name="springboot-oauth2.0-resource" options="-parameters" />
+      <module name="springboot-oauth2.0-resource2" options="-parameters" />
       <module name="springboot-oauth2.0-simple" options="-parameters" />
-      <module name="springboot-outh2.0-simple" options="-parameters" />
-      <module name="springbootoauth20resource2" options="-parameters" />
       <module name="springcloud-apollo" options="-parameters" />
       <module name="springcloud-basics" options="-parameters" />
       <module name="springcloud-customize-gateway" options="-parameters" />
       <module name="springcloud-gateway" options="-parameters" />
-      <module name="springcloud-kafka" options="-parameters" />
       <module name="springcloud-kafka-facade" options="-parameters" />
       <module name="springcloud-kafka-service" options="-parameters" />
       <module name="springcloud-maven" options="-parameters" />
       <module name="springcloud-oauth" options="-parameters" />
-      <module name="springcloud-redis" options="-parameters" />
       <module name="springcloud-spring" options="-parameters" />
     </option>
   </component>

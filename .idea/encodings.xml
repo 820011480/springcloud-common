@@ -1,33 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
-    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springboot-java" charset="UTF-8" />
+  <component name="Encoding">
     <file url="file://$PROJECT_DIR$/springboot-java/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springboot-oauth2.0" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-authorization" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-authorization/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-resource" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-resource/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-resource2" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-resource2/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-simple" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-simple/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud-apollo" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud-basics" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud-basics/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud-customize-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud-customize-gateway/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud-gateway/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud-kafka" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud-kafka/springcloud-kafka-facade" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud-kafka/springcloud-kafka-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud-kafka/springcloud-kafka-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud-maven" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud-oauth" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud-oauth/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/springcloud-spring" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springcloud-spring/src/main/java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

@@ -10,7 +10,6 @@
         <option value="$PROJECT_DIR$/springcloud-gateway/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-kafka/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-simple/pom.xml" />
         <option value="$PROJECT_DIR$/springboot-oauth2.0/pom.xml" />
       </list>
     </option>

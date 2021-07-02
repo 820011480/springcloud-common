@@ -6,8 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0.iml" filepath="$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-authorization/springboot-oauth2.0-authorization.iml" filepath="$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-authorization/springboot-oauth2.0-authorization.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-resource/springboot-oauth2.0-resource.iml" filepath="$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-resource/springboot-oauth2.0-resource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-resource2/springboot-oauth2.0-resource2.iml" filepath="$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-resource2/springboot-oauth2.0-resource2.iml" />
       <module fileurl="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-simple/springboot-oauth2.0-simple.iml" filepath="$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-simple/springboot-oauth2.0-simple.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-resource2/springbootoauth20resource2.iml" filepath="$PROJECT_DIR$/springboot-oauth2.0/springboot-oauth2.0-resource2/springbootoauth20resource2.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-apollo/springcloud-apollo.iml" filepath="$PROJECT_DIR$/springcloud-apollo/springcloud-apollo.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-basics/springcloud-basics.iml" filepath="$PROJECT_DIR$/springcloud-basics/springcloud-basics.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud-common.iml" filepath="$PROJECT_DIR$/springcloud-common.iml" />
